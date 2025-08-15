@@ -1,0 +1,147 @@
+.bottomStyle {
+    border: 1px #ccc;
+    border-radius: 49px;
+    background-color: #0B1E59;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    color: #fff;
+
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #bed2dd
+}
+
+.sourceStyle {
+    padding-top: 15px;
+}
+
+.HyperLinksStyle {
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.DisclaimerStyle {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.bottomLineStyle {
+    border: solid 1px;
+
+}
+
+.headerStyle {
+    color: #fff;
+    font-weight: bold;
+    border-radius: 49px;
+    background-color: #0B1E59;
+    /* padding: 21px; */
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+
+}
+
+.bg-blue {
+    background: #2b79c7;
+}
+
+::marker {
+    color: #0d6efd;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2b79c7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #038af8;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.topStrip {
+
+    border-width: 1px;
+    border-radius: 49px;
+    background-color: #051547;
+    padding-top: 30px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.bottomStrip {
+    border: 0px #ccc;
+    border-radius: 49px;
+    background-color: #0B1E59;
+    padding: 21px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.container-fluid {
+    /* background-color:#fff; */
+}
+
+.bg-blue {
+    background: #2b79c7;
+}
+
+.navbar-top {
+    z-index: 1021;
+}
+
+.py-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.stylesforLogo {
+    padding: 10px !important;
+}
+
+.stylesforPortalTitle {
+    padding: 39px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+
+    color: #fff;
+    font-size: 14PX;
+
+}
+
+.HeaderPhotoStyle {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.dvPortalTitleStyle {
+    margin: 21px;
+}

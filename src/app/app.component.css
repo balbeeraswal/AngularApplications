@@ -1,0 +1,20 @@
+.titleOfPortal 
+{
+    font-size:22px;
+}
+.menuItems
+{
+    font-size:16px;
+}
+.active {
+    background-color: yellow;
+    }
+    .cssforlink
+    {
+     font-size: 20px;
+    }
+    .menuitem
+    {
+        padding-left: 30px;
+        vertical-align:right;
+    }

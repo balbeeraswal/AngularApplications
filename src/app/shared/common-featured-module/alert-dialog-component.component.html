@@ -1,0 +1,23 @@
+<div class="panel panel-info">
+  <div class="panel-heading pnlalertHeading">
+    <span pnlalerttitle>
+      <h2 mat-dialog-title class="pnlalerttitle">{{ data.title }}</h2>
+    </span>
+  </div>
+  <div class="panel-body pnlalertbody">
+    
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <mat-dialog-content>{{data.message}}</mat-dialog-content>
+          <div *ngIf="data.message1!=''">
+           <mat-dialog-content>{{data.message1}}</mat-dialog-content>
+            <mat-dialog-content>{{data.message2}}</mat-dialog-content>
+              <mat-dialog-content>{{data.message3}}</mat-dialog-content>
+                <mat-dialog-content>{{data.message4}}</mat-dialog-content>
+            </div>
+          <mat-dialog-actions align="end">
+            <button mat-button class="btn btn-info" (click)="close()">OK</button>
+          </mat-dialog-actions>
+      </div>
+  </div>
+</div>
+

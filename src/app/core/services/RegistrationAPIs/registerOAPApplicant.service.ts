@@ -1,0 +1,116 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class registerOAPApplicantService {
+  constructor(private http:HttpClient) { }
+registerOAPApplicant(
+  applicantNameE:string,
+  fatherHusbandNameE:string,
+  address: string,
+  addressE: string,
+  bpl_member_id: string,
+  bpl_family_id: string,
+  uiD_no: string,
+  nsap:string,
+  salutename: string,
+  applicantName: string,
+  fatherHusbandName: string,
+  category: string,
+  subcaste: string,
+  gender: string,
+  dob: string,
+  age: string,
+  nominee: string,
+  nominee_relation: string,
+  son_Occupation: string,
+  son_MonthlyIncome: string,
+  mobileNo: string,
+  durrationOfStayInUK: string,
+  district_Code: string,
+  tehsil_Code: string,
+  ruralUrban: string,
+  block_Code: string,
+  panchayat_Code: string,
+  village_Code: string,
+  thanacode: string,
+  patti_Code: string,
+  town_Code: string,
+  ward_Code: string,
+  house_number: string,
+  areaMohalla: string,
+  postOffice: string,
+  pinCode: string,
+  bankCode: string,
+  bankBranchCode: string,
+  bankAccountNo: string,
+  bank_po_pda_name: string,
+  bank_branch_name: string,
+  applicantMonthlyIncome: string,
+  has_Any_Land: string,
+  land_Detail: string,
+  voter_id: string,
+  incom_cert_no: string,
+  incom_cert_date: string,
+  ifsC_Code: string
+):Observable<any>
+  {
+    var baseUrl="http://localhost:5826/api/RegisterOldageApplicant";
+    const headers={'Access-Control-Allow-Origin':'*','content-type':'application/json'};
+  
+    const body={
+                "applicantNameE":applicantNameE,
+  "fatherHusbandNameE": fatherHusbandNameE,
+  "address": address,
+  "addressE": addressE,
+  "bpl_member_id":bpl_member_id ,
+  "bpl_family_id":bpl_family_id ,
+  "uiD_no": uiD_no,
+  "nsap":nsap ,
+  "salutename": salutename,
+  "applicantName": applicantName,
+  "fatherHusbandName": fatherHusbandName,
+  "category": category,
+  "subcaste": subcaste,
+  "gender": gender,
+  "dob": dob,
+  "age": age,
+  "nominee": nominee,
+  "nominee_relation": nominee_relation,
+  "son_Occupation": son_Occupation,
+  "son_MonthlyIncome": son_MonthlyIncome,
+  "mobileNo": mobileNo,
+  "durrationOfStayInUK":durrationOfStayInUK,
+  "district_Code": district_Code,
+  "tehsil_Code": tehsil_Code,
+  "ruralUrban": ruralUrban,
+  "block_Code": block_Code,
+  "panchayat_Code": panchayat_Code,
+  "village_Code": village_Code,
+  "thanacode": thanacode,
+  "patti_Code": patti_Code,
+  "town_Code": town_Code,
+  "ward_Code": ward_Code,
+  "house_number": house_number,
+  "areaMohalla": areaMohalla,
+  "postOffice": postOffice,
+  "pinCode": pinCode,
+  "bankCode": bankCode,
+  "bankBranchCode": bankBranchCode,
+  "bankAccountNo": bankAccountNo,
+  "bank_po_pda_name": bank_po_pda_name,
+  "bank_branch_name": bank_branch_name,
+  "applicantMonthlyIncome": applicantMonthlyIncome,
+  "has_Any_Land": has_Any_Land,
+  "land_Detail": land_Detail,
+  "voter_id": voter_id,
+  "incom_cert_no": incom_cert_no,
+  "incom_cert_date": incom_cert_date,
+  "ifsC_Code": ifsC_Code
+                };
+    return this.http.post(baseUrl,body,{'headers':headers});
+  }
+}

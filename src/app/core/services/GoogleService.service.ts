@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GoogleService {
+  constructor(private _http: HttpClient) {
+  }
+
+  translate(obj: GoogleObj, key: string) {
+    return this._http.post(url + key, obj);
+  }
+}
+
+const url = 'https://translation.googleapis.com/language/translate/v2?';
+
+export class GoogleObj {
+  q: string;
+  readonly source: string = 'en';
+  readonly target: string = 'hi';
+  readonly format: string = 'text';
+
+  constructor() { 
+
+  }
+}

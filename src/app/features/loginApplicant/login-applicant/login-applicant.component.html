@@ -1,0 +1,80 @@
+<mat-form-field>
+              <mat-label>--विवाह पंजीकरण तिथि का चयन करें--</mat-label>
+              <input matInput [matDatepicker]="picker1">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+  <div class="container">
+    <form [formGroup]="loginApplicantForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="panel panel-info paneldv">
+        <div class="panel-heading">
+          <label ID="Label64" for="lblheading"
+            >आवेदक लॉग इन (* प्रविष्टियाँ अनिवार्य हैं)</label
+          >
+        </div>
+        <div class="panel-body form-group">
+          <div class="row rowsGap">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <div class="row">
+                <label id="lblloginid" for="lblloginid"
+                 class="lbl"
+                  > लॉग इन आईडी<span id="Span1" class="CSSstar"
+                    >*</span
+                  ></label
+                >
+  
+                <input
+                #loginId
+                  id="loginId"
+                  name="loginId"
+                  type="text"
+                  placeholder="लॉगिन आईडी"
+                  formControlName="loginId"
+                  class="inputcontrol"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row rowsGap">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <div class="row">
+                <label id="lblloginid" for="lblloginid"
+                 class="lbl"
+                  >पासवर्ड<span id="Span1" class="CSSstar"
+                    >*</span
+                  ></label
+                >
+  
+                <input
+                 #password
+                  id="password"
+                  name="password"
+                  type="text"
+                  placeholder="पासवर्ड"
+                  formControlName="password"
+                  class="inputcontrol"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row rowsGap">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <div class="row">
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: center;">
+          <button type="submit" title="Login" class="btn btn-primary btn-lg buttonStyle">
+            लॉग इन
+          </button>
+        </div>
+      </div>
+      </div>
+    </form>
+  </div>
+  

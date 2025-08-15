@@ -1,0 +1,28 @@
+.dialog-responsive {
+  width: 40vw;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .dialog-responsive {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+  }
+}
+
+.pnlalertHeading {
+
+    padding: 0px!important;
+    
+}
+
+ .pnlalerttitle
+ {
+color:#fff!important;
+ }
+ .pnlalertbody
+ {
+  padding:0px!important;
+ }

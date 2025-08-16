@@ -30,14 +30,12 @@ import { NgxMatDatetimePickerModule,NgxMatTimepickerModule,NgxMatDateAdapter } f
 import {MatDialogModule} from '@angular/material/dialog';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AlertDialogComponentComponent } from './shared/common-featured-module/alert-dialog-component.component';
-import { MasterComponent } from './layout/master/master.component';
-import { FooterLayoutComponent } from './layout/footer-layout/footer-layout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    AlertDialogComponentComponent,
-    MasterComponent,
-    FooterLayoutComponent
+    AlertDialogComponentComponent
+
 
 
   ],

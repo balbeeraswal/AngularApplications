@@ -1,2 +1,6 @@
 This file has changed by balbeer and committed in Balbeer Branch again upatedgit  sfdfdssds
+<<<<<<< HEAD
 fgit pull --rebase origin main
+=======
+f
+>>>>>>> bee49f7ca64a6bf3db058d584b55691a5c8fd196

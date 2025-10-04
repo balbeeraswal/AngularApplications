@@ -1,19 +1,15 @@
-
-<form [formGroup]="registrationForm" autocomplete="off" *ngIf="registrationForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="registrationForm" class="frmStyle" autocomplete="off" *ngIf="registrationForm"
+  (ngSubmit)="onSubmit()">
   <div class="row">
-    <div class="col-xs-12 col-sm-12  col-md-2 col-lg-2">
-      <div class="btngoBackDivStyle">
-        <img src="assets/images/goBackimg6.png" (click)="goBack()" width="60px" height="50px">
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12  col-md-10 col-lg-10">
-
+    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 dvbtnBackStyle">
+      <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goBack()">Go Back</button>
     </div>
   </div>
 
-  <mat-tab-group animationDuration="2000ms" [(selectedIndex)]="selectedTabIndex">
 
-    <mat-tab class="mat-tab-label" label="आवेदक एवं दिव्यांगता का विवरण">
+
+  <mat-tab-group animationDuration="2000ms" [(selectedIndex)]="selectedTabIndex">
+    <mat-tab class="mat-tab-label" label="आवेदक एवं दिव्यांगता का विवरण" disabled>
       <div class="panel panel-info paneldv">
         <div class="panel-heading">
           <span>आवेदक तथा पति/दूल्हा एवं पत्नी/दुल्हन की दिव्यांगता का विवरण</span>
@@ -26,7 +22,7 @@
                 <label id="lblApplicant" for="DisbM_Applicant" class="lbl">आवेदक का चयन करें<span id="Span1"
                     class="CSSstar">*</span> </label>
                 <select id="DisM_Applicant" title="Select Applicant" formControlName="DisbM_Applicant"
-                  class="inputcontrol" [ngClass]="{ 'is-invalid':submitted && f.DisbM_Applicant.errors}">
+                  class="form-control-custom" [ngClass]="{ 'is-invalid':submitted && f.DisbM_Applicant.errors}">
                   <option [ngValue]="null" disabled>--आवेदक का चयन करें--</option>
                   <option value="1">पति/दूल्हा</option>
                   <option value="2">पत्नी/दुल्हन</option>
@@ -43,7 +39,7 @@
                 <label id="lblDisbM_DisabledPersonsDetail" for="DisbM_DisabledPersonsDetail" class="lbl">दिव्यांग
                   व्यक्ति का चयन करें<span id="Span1" class="CSSstar">*</span></label>
                 <select id="DisbM_DisabledPersonsDetail" title="दिव्यांग व्यक्ति का चयन करें"
-                  formControlName="DisbM_DisabledPersonsDetail" class="inputcontrol"
+                  formControlName="DisbM_DisabledPersonsDetail" class="form-control-custom"
                   (change)="DisabledpersonChanged($event);"
                   [ngClass]="{'is-invalid':submitted && f.DisbM_DisabledPersonsDetail.errors}">
                   <option [ngValue]="null" disabled>--दिव्यांग व्यक्ति का चयन करें--</option>
@@ -65,8 +61,8 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbDisabilityType" class="lbl" for="DisbM_HusbDisabilityType">पति/दूल्हा की
                   दिव्यांगता का प्रकार </label>
-                <select id="DisbM_HusbDisabilityType" title="पति/दूल्हा की दिव्यांगता का प्रकार" class="inputcontrol"
-                  formControlName="DisbM_HusbDisabilityType"
+                <select id="DisbM_HusbDisabilityType" title="पति/दूल्हा की दिव्यांगता का प्रकार"
+                  class="form-control-custom" formControlName="DisbM_HusbDisabilityType"
                   [appDisable]="IsHusbDisable && !IsWifeDisable && !IsBothHusbWifeDisable"
                   [ngClass]="{'is-invalid':submitted && f.DisbM_HusbDisabilityType.errors}">
                   <option [ngValue]="null" disabled>--पति/दूल्हा की दिव्यांगता का प्रकार चयन करें--</option>
@@ -87,7 +83,7 @@
                   दिव्यांगता का प्रतिशत(%)</label>
                 <input id="DisbM_HusbDisabilityPer" name="DisbM_HusbDisabilityPer"
                   formControlName="DisbM_HusbDisabilityPer" type="text" title="पति/दूल्हा की दिव्यांगता का प्रतिशत"
-                  class="inputcontrol" placeholder="पति/दूल्हा की दिव्यांगता का प्रतिशत(%)"
+                  class="form-control-custom" placeholder="पति/दूल्हा की दिव्यांगता का प्रतिशत(%)"
                   [appDisable]="IsHusbDisable && !IsWifeDisable && !IsBothHusbWifeDisable"
                   [ngClass]="{'is-invalid':submitted && f.DisbM_HusbDisabilityPer.errors}">
                 <div class="invalid-feedback errorMessages" *ngIf="submitted&&f.DisbM_HusbDisabilityPer.errors">
@@ -116,7 +112,7 @@
                 <label id="lblDisbM_WifeDisabilityType" class="lbl" for="DisbM_WifeDisabilityType">पत्नी/दुल्हन
                   की
                   दिव्यांगता का प्रकार </label>
-                <select id="DisbM_WifeDisabilityType" title=" दिव्यांगता का प्रकार" class="inputcontrol"
+                <select id="DisbM_WifeDisabilityType" title=" दिव्यांगता का प्रकार" class="form-control-custom"
                   formControlName="DisbM_WifeDisabilityType"
                   [appDisable]="!IsHusbDisable && IsWifeDisable && !IsBothHusbWifeDisable"
                   [ngClass]="{'is-invalid':f.DisbM_WifeDisabilityType.errors}">
@@ -139,7 +135,7 @@
                   दिव्यांगता का प्रतिशत(%)</label>
                 <input id="DisbM_WifeDisabilityPer" name="DisbM_WifeDisabilityPer"
                   formControlName="DisbM_WifeDisabilityPer" type="text" title=" दिव्यांगता का प्रतिशत"
-                  [appDisable]="!IsHusbDisable && IsWifeDisable && !IsBothHusbWifeDisable" class="inputcontrol"
+                  [appDisable]="!IsHusbDisable && IsWifeDisable && !IsBothHusbWifeDisable" class="form-control-custom"
                   placeholder="पत्नी/दुल्हन की दिव्यांगता का प्रतिशत(%)"
                   [ngClass]="{'is-invalid':submitted && f.DisbM_WifeDisabilityPer.errors}">
                 <div class="invalid-feedback errorMessages" *ngIf="submitted&&f.DisbM_WifeDisabilityPer.errors">
@@ -167,7 +163,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <!-- <button class="btn  btn-success btn-lg" color="primary" (click)="goToPreviousTab()">Previous</button> -->
+                <!-- <button class="btn  btn-success btn-lg btnStyle" color="primary" (click)="goToPreviousTab()">Prev</button>  -->
               </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
@@ -177,7 +173,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <button class="btn btn-success btn-lg" color="primary" (click)="goToNextTab()">Next</button>
+                <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goToNextTab()">Next</button>
               </div>
             </div>
           </div>
@@ -186,7 +182,7 @@
       </div>
     </mat-tab>
 
-    <mat-tab class="mat-tab-label" label="पति/दूल्हा का विवरण">
+    <mat-tab class="mat-tab-label" label="पति/दूल्हा का विवरण" disabled>
       <div class="panel panel-info paneldv">
         <div class="panel-heading">
           <span> पति/दूल्हा का विवरण(* प्रविष्टियाँ अनिवार्य हैं)</span>
@@ -201,7 +197,7 @@
                 <label id="lblDisbM_HusbName" for="DisbM_HusbName" class="lbl">नाम<span id="Span1"
                     class="CSSstar">*</span></label>
                 <input id="DisbM_HusbName" name="DisbM_HusbName" type="text" placeholder=" नाम"
-                  formControlName="DisbM_HusbName" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_HusbName" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbName.errors }">
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbName.errors">
@@ -222,7 +218,7 @@
                 <label id="lblDisbM_HusbNationality" for="DisbM_HusbNationality" class="lbl">
                   राष्ट्रीयता<span id="Span1" class="CSSstar">*</span></label>
                 <select id="DisbM_HusbNationality" name="DisbM_HusbNationality" formControlName="DisbM_HusbNationality"
-                  class="inputcontrol" title="Dism Huband Nationality">
+                  class="form-control-custom" title="Dism Huband Nationality">
                   <option [ngValue]="1" disabled>भारतीय</option>
                 </select>
               </div>
@@ -236,7 +232,7 @@
                 <label id="lblDisbM_HusbReligion" for="DisbM_HusbReligion" class="lbl">धर्म<span id="Span1"
                     class="CSSstar">*</span></label>
                 <select id="DisbM_HusbReligion" name="DisbM_HusbReligion" formControlName="DisbM_HusbReligion"
-                  class="inputcontrol" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbReligion.errors }">
+                  class="form-control-custom" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbReligion.errors }">
                   <option [ngValue]="null" disabled>--धर्म का चयन करें--</option>
                   <option value="1">Hinduism</option>
                   <option value="2">Islam</option>
@@ -259,7 +255,7 @@
                 <label id="lblDisbM_HusbCaste" for="DisbM_HusbCaste" title="Husband Caste" class="lbl">
                   जाति<span id="Span1" class="CSSstar">*</span></label>
                 <select id="DisbM_HusbCaste" name="DisbM_HusbCaste" formControlName="DisbM_HusbCaste"
-                  title="DisbM_HusbCaste" class="inputcontrol"
+                  title="DisbM_HusbCaste" class="form-control-custom"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbCaste.errors }">
                   <option [ngValue]="null" disabled>--जाति का चयन करें--</option>
                   <option *ngFor="let category of categories" [ngValue]=category.catergory_Code>
@@ -283,7 +279,7 @@
                   <span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_HusbAgeAtTimeOfMarriage" name="DisbM_HusbAgeAtTimeOfMarriage" type="text"
                   placeholder="विवाह के समय आयु(वर्षों में)" formControlName="DisbM_HusbAgeAtTimeOfMarriage"
-                  class="inputcontrol" autocomplete="off"
+                  class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbAgeAtTimeOfMarriage.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbAgeAtTimeOfMarriage.errors">
@@ -308,7 +304,7 @@
                 <label id="lblDisbM_HusbOccupation" for="DisbM_HusbOccupation" class="lbl">
                   व्यवसाय</label>
                 <select id="DisbM_HusbOccupation" name="DisbM_HusbOccupation" formControlName="DisbM_HusbOccupation"
-                  class="inputcontrol" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbOccupation.errors }">
+                  class="form-control-custom" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbOccupation.errors }">
                   <option [ngValue]="null" disabled>--व्यवसाय चयन करें------</option>
                   <option *ngFor="let occup of Occupations" [ngValue]=occup.disbM_OccupationCode>
                     {{occup.disbM_OccupationName}}</option>
@@ -329,7 +325,7 @@
                   रहने की अवधि(वर्षों में)<span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_HusbDurationStayInUK" name="DisbM_HusbDurationStayInUK" type="text"
                   placeholder="उत्तराखंड में रहने की अवधि(वर्षों में)" formControlName="DisbM_HusbDurationStayInUK"
-                  class="inputcontrol" autocomplete="off"
+                  class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbDurationStayInUK.errors }" />
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbDurationStayInUK.errors">
                   <div *ngIf="f.DisbM_HusbDurationStayInUK.errors.required">
@@ -352,7 +348,7 @@
                 <label id="lblDisbM_HusbMobileNo" for="DisbM_HusbMobileNo" class="lbl"> मोबाइल
                   नंबर<span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_HusbMobileNo" name="DisbM_HusbMobileNo" type="text" placeholder="मोबाइल नंबर"
-                  formControlName="DisbM_HusbMobileNo" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_HusbMobileNo" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbMobileNo.errors }" />
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbMobileNo.errors">
                   <div *ngIf="f.DisbM_HusbMobileNo.errors.required">
@@ -379,7 +375,7 @@
                   <label id="lblDisbM_HusbAadhaarNo" for="DisbM_HusbAadhaarNo" class="lbl">आधार
                     नम्बर<span id="Span1" class="CSSstar">*</span></label>
                   <input id="DisbM_HusbAadhaarNo" name="DisbM_HusbAadhaarNo" type="text" placeholder="आधार नम्बर"
-                    formControlName="DisbM_HusbAadhaarNo" class="inputcontrol" autocomplete="off"
+                    formControlName="DisbM_HusbAadhaarNo" class="form-control-custom" autocomplete="off"
                     [ngClass]="{ 'is-invalid': submitted && f['DisbM_HusbAadhaarNo'].errors }" />
 
                   <div *ngIf="submitted && f['DisbM_HusbAadhaarNo'].errors" class="invalid-feedback errorMessages">
@@ -422,7 +418,7 @@
                 <label id="lblDisbM_HusbGender" class="lbl" for="DisbM_HusbGender">लिंग<span id="Span1"
                     class="CSSstar">*</span></label>
                 <select id="DisbM_HusbGender" name="DisbM_HusbGender" formControlName="DisbM_HusbGender"
-                  class="inputcontrol" [ngClass]="{'is-Invalid':submitted&&f.DisbM_HusbGender.errors}">
+                  class="form-control-custom" [ngClass]="{'is-Invalid':submitted&&f.DisbM_HusbGender.errors}">
                   <option [ngValue]="null">--लिंग चयन करें--</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -471,8 +467,9 @@
                   <label id="lblDisbM_HusbFatherName" for="DisbM_HusbFatherName" class="lbl">पिता
                     का नाम</label>
                   <input id="DisbM_HusbFatherName" name="DisbM_HusbFatherName" type="text" placeholder="पिता का नाम"
-                    formControlName="DisbM_HusbFatherName" class="inputcontrol" [appDisable]="HusbFatherfieldsDisabled"
-                    autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherName.errors }" />
+                    formControlName="DisbM_HusbFatherName" class="form-control-custom"
+                    [appDisable]="HusbFatherfieldsDisabled" autocomplete="off"
+                    [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherName.errors }" />
 
                   <div class="invalid-feedback errorMessages"
                     *ngIf="submitted && !HusbFatherfieldsDisabled && f.DisbM_HusbFatherName.errors">
@@ -501,7 +498,7 @@
                   <label id="lblDisbM_HusbFatherOccupation" for="DisbM_HusbFatherOccupation" class="lbl">पिता का
                     व्यवसाय</label>
                   <select id="DisbM_HusbFatherOccupation" name="DisbM_HusbFatherOccupation"
-                    formControlName="DisbM_HusbFatherOccupation" class="inputcontrol"
+                    formControlName="DisbM_HusbFatherOccupation" class="form-control-custom"
                     [appDisable]="HusbFatherfieldsDisabled"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherOccupation.errors }">
                     <option [ngValue]="null" disabled>--पिता का व्यवसाय चयन करें--</option>
@@ -523,7 +520,7 @@
                     राष्ट्रीयता</label>
 
                   <select id="DisbM_HusbFatherNationality" name="DisbM_HusbFatherNationality"
-                    formControlName="DisbM_HusbFatherNationality" class="inputcontrol"
+                    formControlName="DisbM_HusbFatherNationality" class="form-control-custom"
                     title="Dism Huband Father Nationality" [appDisable]="HusbFatherfieldsDisabled"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherNationality.errors }">
 
@@ -541,7 +538,7 @@
                   <label id="lblDisbM_HusbFatherReligion" for="DisbM_HusbFatherReligion" class="lbl">पिता का
                     धर्म</label>
                   <select id="DisbM_HusbFatherReligion" name="DisbM_HusbFatherReligion"
-                    formControlName="DisbM_HusbFatherReligion" class="inputcontrol"
+                    formControlName="DisbM_HusbFatherReligion" class="form-control-custom"
                     [appDisable]="HusbFatherfieldsDisabled"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherReligion.errors }">
                     <option [ngValue]="null" disabled>--पिता का धर्म चयन करें--</option>
@@ -567,7 +564,8 @@
                   <label id="lblDisbM_HusbFatherCaste" for="DisbM_HusbFatherCaste" class="lbl">पिता की जाति</label>
 
                   <select id="DisbM_HusbFatherCaste" name="DisbM_HusbFatherCaste"
-                    formControlName="DisbM_HusbFatherCaste" class="inputcontrol" [appDisable]="HusbFatherfieldsDisabled"
+                    formControlName="DisbM_HusbFatherCaste" class="form-control-custom"
+                    [appDisable]="HusbFatherfieldsDisabled"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherCaste.errors }">
                     <option [ngValue]="null" disabled>--पिता की जाति चयन करें--</option>
                     <option *ngFor="let category of categories" [ngValue]=category.catergory_Code>
@@ -590,7 +588,7 @@
                     उपजाति</label>
                   <input #DisbM_HusbFatherSubCaste id="DisbM_HusbFatherSubCaste" name="DisbM_HusbFatherSubCaste"
                     type="text" placeholder="पिता की उपजाति" formControlName="DisbM_HusbFatherSubCaste"
-                    class="inputcontrol" [appDisable]="HusbFatherfieldsDisabled" />
+                    class="form-control-custom" [appDisable]="HusbFatherfieldsDisabled" />
 
 
                 </div>
@@ -600,8 +598,8 @@
                   <label id="lblDisbM_HusbFatherLastAddress" for="DisbM_HusbFatherLastAddress" class="lbl">पिता का
                     अंतिम पता</label>
                   <input id="DisbM_HusbFatherLastAddress" name="DisbM_HusbFatherLastAddress" type="text"
-                    placeholder="पिता का अंतिम पता" formControlName="DisbM_HusbFatherLastAddress" class="inputcontrol"
-                    [appDisable]="!HusbFatherfieldsDisabled" autocomplete="off"
+                    placeholder="पिता का अंतिम पता" formControlName="DisbM_HusbFatherLastAddress"
+                    class="form-control-custom" [appDisable]="!HusbFatherfieldsDisabled" autocomplete="off"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherLastAddress.errors }" />
 
                   <div class="invalid-feedback errorMessages"
@@ -627,7 +625,7 @@
                     अंतिम व्यवसाय</label>
 
                   <select id="DisbM_HusbFatherLastOccupation" name="DisbM_HusbFatherLastOccupation"
-                    formControlName="DisbM_HusbFatherLastOccupation" class="inputcontrol"
+                    formControlName="DisbM_HusbFatherLastOccupation" class="form-control-custom"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbFatherLastOccupation.errors }"
                     [appDisable]="!HusbFatherfieldsDisabled">
                     <option [ngValue]="null" disabled>--पिता का अंतिम व्यवसाय------</option>
@@ -648,14 +646,18 @@
         </div>
         <div class="panel-bottom">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
-              <div class="row">
-
+           
+              <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                <div class="row">
+                  <button class="btn  btn-success btn-lg btnStyle" color="primary"
+                    (click)="goToPreviousTab()">Prev..</button>
+                </div>
               </div>
+              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <button class="btn btn-success btn-lg" color="primary" (click)="goToNextTab()">Next</button>
+                <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goToNextTab()">Next</button>
               </div>
             </div>
           </div>
@@ -664,7 +666,7 @@
 
 
     </mat-tab>
-    <mat-tab label="पति/दूल्हा का पता">
+    <mat-tab label="पति/दूल्हा का पता" disabled>
       <!-- < पता (* प्रविष्टियाँ अनिवार्य हैं) -->
       <div class="panel panel-info paneldv">
         <div class="panel-heading">
@@ -680,7 +682,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbDistrict_Code" for="DisbM_HusbDistrict_Code" class="lbl">जिला<span id="Span1"
                     class="CSSstar">*</span></label>
-                <select #ddlHusbDistrict class="inputcontrol" title="DisbM_HusbDistrict_Code"
+                <select #ddlHusbDistrict class="form-control-custom" title="DisbM_HusbDistrict_Code"
                   id="DisbM_HusbDistrict_Code" name="DisbM_HusbDistrict_Code" (change)="onHubDistrictChange($event)"
                   formControlName="DisbM_HusbDistrict_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbDistrict_Code.errors }">
@@ -701,7 +703,7 @@
                 <label id="lblDisbM_HusbRuralUrban" for="DisbM_HusbRuralUrban" class="lbl">क्षेत्र<span id="Span1"
                     class="CSSstar">*</span></label>
 
-                <select #ddlHusbArea class="inputcontrol" title="DisbM_HusbRuralUrban"
+                <select #ddlHusbArea class="form-control-custom" title="DisbM_HusbRuralUrban"
                   (change)="onHusbAreaChange($event)" formControlName="DisbM_HusbRuralUrban" id="DisbM_HusbRuralUrban"
                   Name="DisbM_HusbRuralUrban" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbRuralUrban.errors }">
                   <option [ngValue]="null" disabled>--क्या क्षेत्र--</option>
@@ -725,8 +727,8 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbTehsil_Code" for="DisbM_HusbTehsil_Code" class="lbl">तहसील<span id="Span1"
                     class="CSSstar">*</span></label>
-                <select #ddlHusbTehsil id="DisbM_HusbTehsil_Code" name="DisbM_HusbTehsil_Code" class="inputcontrol"
-                  title="DisbM_HusbTehsil_Code" (change)="onHusbTehsilChange($event)"
+                <select #ddlHusbTehsil id="DisbM_HusbTehsil_Code" name="DisbM_HusbTehsil_Code"
+                  class="form-control-custom" title="DisbM_HusbTehsil_Code" (change)="onHusbTehsilChange($event)"
                   formControlName="DisbM_HusbTehsil_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbTehsil_Code.errors }">
                   <option [ngValue]="null" disabled>--तहसील का चयन करें--</option>
@@ -745,7 +747,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblblock" for="DisbM_HusbBlock_Code" class="lbl">ब्लाक </label>
-                <select #ddlHusbBlock class="inputcontrol" title="DisbM_HusbBlock_Code"
+                <select #ddlHusbBlock class="form-control-custom" title="DisbM_HusbBlock_Code"
                   (change)="onHusbBlockChange($event)" formControlName="DisbM_HusbBlock_Code" id="DisbM_HusbBlock_Code"
                   name="DisbM_HusbBlock_Code" [appDisable]="disableHusbRuralArea"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbBlock_Code.errors }">
@@ -769,7 +771,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbPanchayat_Code" for="DisbM_HusbPanchayat_Code" class="lbl">पंचायत</label>
                 <select #ddlHusbPanchayat id="DisbM_HusbPanchayat_Code" name="DisbM_HusbPanchayat_Code"
-                  class="inputcontrol" (change)="onHusbPanchayatChange($event)" title="Panchayat"
+                  class="form-control-custom" (change)="onHusbPanchayatChange($event)" title="Panchayat"
                   formControlName="DisbM_HusbPanchayat_Code" [appDisable]="disableHusbRuralArea"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbPanchayat_Code.errors }">
                   <option [ngValue]="null" disabled disabled selected hidden>--पंचायत का चयन करें--</option>
@@ -788,8 +790,9 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbVillage_Code" for="DisbM_HusbVillage_Code" class="lbl">गाँव</label>
-                <select #ddlHusbVillage id="DisbM_HusbVillage_Code" name="DisbM_HusbVillage_Code" class="inputcontrol"
-                  title="Village_Code" formControlName="DisbM_HusbVillage_Code" [appDisable]="disableHusbRuralArea"
+                <select #ddlHusbVillage id="DisbM_HusbVillage_Code" name="DisbM_HusbVillage_Code"
+                  class="form-control-custom" title="Village_Code" formControlName="DisbM_HusbVillage_Code"
+                  [appDisable]="disableHusbRuralArea"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbVillage_Code.errors }">
                   <option [ngValue]="null" disabled disabled selected hidden>--गाँव का चयन करें--</option>
                   <option *ngFor="let vlg of villages" [value]="vlg.village_Code">
@@ -809,7 +812,8 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbTown_Code" for="DisbM_HusbTown_Code" class="lbl">शहर</label>
-                <select #ddHusblTown id="DisbM_HusbTown_Code" name="DisbM_HusbTown_Code" Class="inputcontrol"
+                <select #ddHusblTown id="DisbM_HusbTown_Code" name="DisbM_HusbTown_Code"
+                 class="form-control-custom"
                   (change)="onHusbTownChange($event)" title="DisbM_HusbTown_Code" formControlName="DisbM_HusbTown_Code"
                   [appDisable]="!disableHusbRuralArea"
                   [ngClass]="{ 'is-invalid': submitted  && f.DisbM_HusbTown_Code.errors }">
@@ -830,7 +834,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbWard_Code" for="DisbM_HusbWard_Code" class="lbl">वार्ड</label>
-                <select #ddlHusbWard id="DisbM_HusbWard_Code" name="DisbM_HusbWard_Code" Class="inputcontrol"
+                <select #ddlHusbWard id="DisbM_HusbWard_Code" name="DisbM_HusbWard_Code" class="form-control-custom"
                   title="Ward" formControlName="DisbM_HusbWard_Code" [appDisable]="!disableHusbRuralArea"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbWard_Code.errors }">
                   <option [ngValue]="null" disabled>--वार्ड का चयन करें--</option>
@@ -852,7 +856,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbHouse_number" for="DisbM_HusbHouse_number" class="lbl">मकान न.</label>
                 <input #ddlHusbHouseNumber id="DisbM_HusbHouse_number" name="DisbM_HusbHouse_number" type="text"
-                  placeholder="मकान न." formControlName="DisbM_HusbHouse_number" class="inputcontrol"
+                  placeholder="मकान न." formControlName="DisbM_HusbHouse_number" class="form-control-custom"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbHouse_number.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbHouse_number.errors">
@@ -870,8 +874,8 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbAreaMohalla" for="DisbM_HusbAreaMohalla" class="lbl">मुहल्ला</label>
                 <input #ddlHusbHusbAreaMohalla id="DisbM_HusbAreaMohalla" name="DisbM_HusbAreaMohalla" type="text"
-                  placeholder="मुहल्ला" formControlName="DisbM_HusbAreaMohalla" class="inputcontrol" autocomplete="off"
-                  [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbAreaMohalla.errors }" />
+                  placeholder="मुहल्ला" formControlName="DisbM_HusbAreaMohalla" class="form-control-custom"
+                  autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbAreaMohalla.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbAreaMohalla.errors">
                   <div *ngIf="f.DisbM_HusbAreaMohalla.errors.pattern">
@@ -892,7 +896,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbPostOffice" for="DisbM_HusbPostOffice" class="lbl">पोस्ट ऑफिस</label>
                 <input id="DisbM_HusbPostOffice" name="DisbM_HusbPostOffice" type="text" placeholder="पोस्ट ऑफिस"
-                  formControlName="DisbM_HusbPostOffice" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_HusbPostOffice" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbPostOffice.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbPostOffice.errors">
@@ -907,7 +911,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbPinCode" for="DisbM_HusbPinCode" class="lbl">पिन कोड</label>
                 <input id="DisbM_HusbPinCode" name="DisbM_HusbPinCode" type="text" placeholder="पिन कोड"
-                  formControlName="DisbM_HusbPinCode" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_HusbPinCode" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbPinCode.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbPinCode.errors">
@@ -936,7 +940,7 @@
                 <label id="lblDisbM_HusbCurrentAddress" for="DisbM_HusbCurrentAddress" class="lbl">वर्तमान पता <span
                     id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_HusbCurrentAddress" name="DisbM_HusbCurrentAddress" type="text"
-                  placeholder="वर्तमान पता" formControlName="DisbM_HusbCurrentAddress" class="inputcontrol"
+                  placeholder="वर्तमान पता" formControlName="DisbM_HusbCurrentAddress" class="form-control-custom"
                   autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbCurrentAddress.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_HusbCurrentAddress.errors">
@@ -959,7 +963,7 @@
                   का पता <span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_HusbBeforeMarriagAddress" name="DisbM_HusbBeforeMarriagAddress" type="text"
                   placeholder="विवाह पूर्व का पता " formControlName="DisbM_HusbBeforeMarriagAddress"
-                  class="inputcontrol" autocomplete="off"
+                  class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbBeforeMarriagAddress.errors }" />
 
                 <div class="invalid-feedback errorMessages"
@@ -986,7 +990,7 @@
 
                 <label id="lblDisbM_HusbLokSabhaArea" for="DisbM_HusbLokSabhaArea" class="lbl">लोकसभा क्षेत्र<span
                     id="Span1" class="CSSstar">*</span></label>
-                <select id="DisbM_HusbLokSabhaArea" name="DisbM_HusbLokSabhaArea" class="inputcontrol"
+                <select id="DisbM_HusbLokSabhaArea" name="DisbM_HusbLokSabhaArea" class="form-control-custom"
                   formControlName="DisbM_HusbLokSabhaArea"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_HusbLokSabhaArea.errors }">
                   <option [ngValue]="null" disabled>--लोकसभा क्षेत्र क चयन करें--</option>
@@ -1005,7 +1009,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_HusbAssemblyArea" for="DisbM_HusbAssemblyArea" class="lbl">विधानसभा क्षेत्र<span
                     id="Span1" class="CSSstar">*</span></label>
-                <select id="DisbM_HusbAssemblyArea" name="DisbM_HusbAssemblyArea" class="inputcontrol"
+                <select id="DisbM_HusbAssemblyArea" name="DisbM_HusbAssemblyArea" class="form-control-custom"
                   formControlName="DisbM_HusbAssemblyArea"
                   [ngClass]="{ 'is-invalid':submitted && f.DisbM_HusbAssemblyArea.errors }">
                   <option [ngValue]="null" disabled>--विधानसभा क्षेत्र का चयन करें--</option>
@@ -1023,30 +1027,28 @@
           </div>
 
         </div>
-        <div class="panel-bottom">
+            <div class="panel-bottom">
           <div class="row">
+           
+              <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                <div class="row">
+                  <button class="btn  btn-success btn-lg btnStyle" color="primary"
+                    (click)="goToPreviousTab()">Prev..</button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <button class="btn  btn-success btn-lg" color="primary" (click)="goToPreviousTab()">Previous</button>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-              <div class="row">
-
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
-              <div class="row">
-                <button class="btn btn-success btn-lg" color="primary" (click)="goToNextTab()">Next</button>
+                <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goToNextTab()">Next</button>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
     </mat-tab>
-    <mat-tab label="पत्नी/दुल्हन का विवरण">
+    <mat-tab label="पत्नी/दुल्हन का विवरण" disabled>
       <div class="panel panel-info paneldv">
         <div class="panel-heading">
           <span>पत्नी/दुल्हन का विवरण(* प्रविष्टियाँ अनिवार्य हैं)</span>
@@ -1059,7 +1061,7 @@
                     class="CSSstar">*</span></label>
 
                 <input id="DisbM_WifeName" name="DisbM_WifeName" type="text" placeholder="नाम"
-                  formControlName="DisbM_WifeName" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_WifeName" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeName.errors }" />
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeName.errors">
                   <div *ngIf="f.DisbM_WifeName.errors.required">
@@ -1081,7 +1083,7 @@
 
 
                 <select id="DisbM_WifeNationality" name="DisbM_WifeNationality" formControlName="DisbM_WifeNationality"
-                  class="inputcontrol" title="Dism Wife Nationality"
+                  class="form-control-custom" title="Dism Wife Nationality"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeNationality.errors }">
                   <!-- <option value=" " disabled selected hidden>-- राष्ट्रीयता चयन करें--</option> -->
                   <option [ngValue]="1" disabled>भारतीय</option>
@@ -1104,7 +1106,7 @@
                 <label id="lblDisbM_WifeReligion" for="DisbM_WifeReligion" class="lbl" title="Religion">
                   धर्म<span id="Span1" class="CSSstar">*</span></label>
                 <select id="DisbM_WifeReligion" name="DisbM_WifeReligion" title="Religion"
-                  formControlName="DisbM_WifeReligion" class="inputcontrol"
+                  formControlName="DisbM_WifeReligion" class="form-control-custom"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeReligion.errors }">
                   <option [ngValue]="null" disabled>--धर्म चयन करें--</option>
                   <option value="1">Hinduism</option>
@@ -1127,7 +1129,7 @@
                 <label id="lblDisbM_WifeCaste" for="DisbM_WifeCaste" class="lbl">जाति<span id="Span1"
                     class="CSSstar">*</span></label>
                 <select id="DisbM_WifeCaste" name="DisbM_WifeCaste" formControlName="DisbM_WifeCaste"
-                  class="inputcontrol" [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeCaste.errors }">
+                  class="form-control-custom" [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeCaste.errors }">
                   <option [ngValue]="null" disabled>--जाति चयन करें--</option>
                   <option *ngFor="let category of categories" [ngValue]=category.catergory_Code>
                     {{category.category_Name}}
@@ -1149,8 +1151,8 @@
                 <label id="lblDisbM_WifeAgeAtTimeOfMarriage" for="DisbM_WifeAgeAtTimeOfMarriage" class="lbl">विवाह के
                   समय आयु(वर्षों में)<span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_WifeAgeAtTimeOfMarriage" name="DisbM_WifeAgeAtTimeOfMarriage" type="text"
-                  placeholder="विवाह के समय  आयु" formControlName="DisbM_WifeAgeAtTimeOfMarriage" class="inputcontrol"
-                  autocomplete="off"
+                  placeholder="विवाह के समय  आयु" formControlName="DisbM_WifeAgeAtTimeOfMarriage"
+                  class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeAgeAtTimeOfMarriage.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeAgeAtTimeOfMarriage.errors">
@@ -1175,7 +1177,7 @@
                 <label id="lblDisbM_WifeOccupation" for="DisbM_WifeOccupation" class="lbl">
                   व्यवसाय</label>
                 <select id="DisbM_WifeOccupation" name="DisbM_WifeOccupation" title="Occupation"
-                  formControlName="DisbM_WifeOccupation" class="inputcontrol"
+                  formControlName="DisbM_WifeOccupation" class="form-control-custom"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeOccupation.errors }">
                   <option [ngValue]="null" disabled>--व्यवसाय चयन करें --</option>
                   <option *ngFor="let Occup of Occupations" [ngValue]=Occup.disbM_OccupationCode>
@@ -1198,7 +1200,7 @@
                   रहने की अवधि<span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_WifeDurationStayInUK" name="DisbM_WifeDurationStayInUK" type="text"
                   placeholder="उत्तराखंड में रहने की अवधि" formControlName="DisbM_WifeDurationStayInUK"
-                  class="inputcontrol" autocomplete="off"
+                  class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeDurationStayInUK.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeDurationStayInUK.errors">
@@ -1222,7 +1224,7 @@
                 <label id="lblDisbM_WifeMobileNo" for="DisbM_WifeMobileNo" class="lbl">मोबाइल
                   नंबर<span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_WifeMobileNo" name="DisbM_WifeMobileNo" type="text" placeholder="मोबाइल नंबर"
-                  formControlName="DisbM_WifeMobileNo" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_WifeMobileNo" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeMobileNo.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeMobileNo.errors">
@@ -1251,7 +1253,7 @@
                 <label id="lblDisbM_WifeAadhaarNo" for="DisbM_WifeAadhaarNo" class="lbl">आधार
                   नम्बर<span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_WifeAadhaarNo" name="DisbM_WifeAadhaarNo" type="text" placeholder="आधार नम्बर"
-                  formControlName="DisbM_WifeAadhaarNo" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_WifeAadhaarNo" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeAadhaarNo.errors }" />
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeAadhaarNo.errors">
                   <div *ngIf="f.DisbM_WifeAadhaarNo.errors.required">
@@ -1296,7 +1298,7 @@
                 <label id="lblDisbM_WifeGender" class="lbl" for="DisbM_WifeGender">लिंग<span id="Span1"
                     class="CSSstar">*</span></label>
                 <select id="DisbM_WifeGender" name="DisbM_IsWifeGender" formControlName="DisbM_WifeGender"
-                  class="inputcontrol" [ngClass]="{'is-Invalid':submitted&&f.DisbM_WifeGender.errors}">
+                  class="form-control-custom" [ngClass]="{'is-Invalid':submitted&&f.DisbM_WifeGender.errors}">
                   <option [ngValue]="null">--लिंग चयन करें--</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -1342,8 +1344,9 @@
                   <label id="lblDisbM_WifeFatherName" for="DisbM_WifeFatherName" class="lbl">पिता
                     का नाम<span id="Span1" class="CSSstar">*</span></label>
                   <input id="DisbM_WifeFatherName" name="DisbM_WifeFatherName" type="text" placeholder=" पिता का नाम"
-                    formControlName="DisbM_WifeFatherName" class="inputcontrol" [appDisable]="WifeFatherfieldsDisabled"
-                    autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeFatherName.errors }" />
+                    formControlName="DisbM_WifeFatherName" class="form-control-custom"
+                    [appDisable]="WifeFatherfieldsDisabled" autocomplete="off"
+                    [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeFatherName.errors }" />
 
 
                   <div class="invalid-feedback errorMessages"
@@ -1373,7 +1376,7 @@
                     व्यवसाय<span id="Span1" class="CSSstar">*</span></label>
 
                   <select id="DisbM_WifeFatherOccupation" name="DisbM_WifeFatherOccupation"
-                    formControlName="DisbM_WifeFatherOccupation" class="inputcontrol"
+                    formControlName="DisbM_WifeFatherOccupation" class="form-control-custom"
                     [appDisable]="WifeFatherfieldsDisabled"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeFatherOccupation.errors }">
                     <option [ngValue]="null" disabled>--पिता का व्यवसाय चयन करें------</option>
@@ -1396,8 +1399,8 @@
                   <label id="lblDisbM_WifeFatherLastAddress" for="DisbM_WifeFatherLastAddress" class="lbl">पिता
                     का अंतिम पता<span id="Span1" class="CSSstar">*</span></label>
                   <input id="DisbM_WifeFatherLastAddress" name="DisbM_WifeFatherLastAddress" type="text"
-                    placeholder="पिता का अंतिम पता" formControlName="DisbM_WifeFatherLastAddress" class="inputcontrol"
-                    [appDisable]="!WifeFatherfieldsDisabled" autocomplete="off"
+                    placeholder="पिता का अंतिम पता" formControlName="DisbM_WifeFatherLastAddress"
+                    class="form-control-custom" [appDisable]="!WifeFatherfieldsDisabled" autocomplete="off"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeFatherLastAddress.errors }" />
 
                   <div class="invalid-feedback errorMessages"
@@ -1422,7 +1425,7 @@
                     व्यवसाय<span id="Span1" class="CSSstar">*</span></label>
 
                   <select id="DisbM_WifeFatherLastOccupation" name="DisbM_WifeFatherLastOccupation"
-                    formControlName="DisbM_WifeFatherLastOccupation" class="inputcontrol"
+                    formControlName="DisbM_WifeFatherLastOccupation" class="form-control-custom"
                     [appDisable]="!WifeFatherfieldsDisabled"
                     [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeFatherLastOccupation.errors }">
                     <option [ngValue]="null" disabled>--पिता का अंतिम व्यवसाय चयन करें------
@@ -1443,21 +1446,20 @@
             </div>
           </div>
         </div>
-        <div class="panel-bottom">
+            <div class="panel-bottom">
           <div class="row">
+           
+              <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                <div class="row">
+                  <button class="btn  btn-success btn-lg btnStyle" color="primary"
+                    (click)="goToPreviousTab()">Prev..</button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <button class="btn  btn-success btn-lg" color="primary" (click)="goToPreviousTab()">Previous</button>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-              <div class="row">
-
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
-              <div class="row">
-                <button class="btn btn-success btn-lg" color="primary" (click)="goToNextTab()">Next</button>
+                <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goToNextTab()">Next</button>
               </div>
             </div>
           </div>
@@ -1466,7 +1468,7 @@
 
     </mat-tab>
 
-    <mat-tab label="पत्नी/दुल्हन का पता">
+    <mat-tab label="पत्नी/दुल्हन का पता" disabled>
 
       <!-- पत्नी/दुल्हन का पता (* प्रविष्टियाँ अनिवार्य हैं) -->
       <div class="panel panel-info paneldv">
@@ -1480,7 +1482,7 @@
                 <label id="lblDisbM_WifeDistrict_Code" for="DisbM_WifeDistrict_Code" class="lbl">
                   जिला <span id="Span1" class="CSSstar">*</span></label>
                 <select #ddlWifeDistrict id="DisbM_WifeDistrict_Code" name="DisbM_WifeDistrict_Code"
-                  class="inputcontrol" title="DisbM_WifeDistrict_Code" (change)="onWifeDistrictChange($event)"
+                  class="form-control-custom" title="DisbM_WifeDistrict_Code" (change)="onWifeDistrictChange($event)"
                   formControlName="DisbM_WifeDistrict_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeDistrict_Code.errors }">
                   <option [ngValue]="null" disabled>--जिले का चयन करें--</option>
@@ -1500,7 +1502,7 @@
                 <label id="lblDisbM_WifeRuralUrban" for="DisbM_WifeRuralUrban" class="DisbM_WifeRuralUrban">क्षेत्र
                   <span id="Span1" class="CSSstar">*</span></label>
 
-                <select #ddlWifeArea id="DisbM_WifeRuralUrban" name="DisbM_WifeRuralUrban" class="inputcontrol"
+                <select #ddlWifeArea id="DisbM_WifeRuralUrban" name="DisbM_WifeRuralUrban" class="form-control-custom"
                   title="DisbM_WifeRuralUrban" (change)="onWifeAreaChange($event)"
                   formControlName="DisbM_WifeRuralUrban"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeRuralUrban.errors }">
@@ -1525,8 +1527,8 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeTehsil_Code" for="DisbM_WifeTehsil_Code" class="lbl">तहसील<span id="Span1"
                     class="CSSstar">*</span></label>
-                <select #ddlWifeTehsil id="DisbM_WifeTehsil_Code" name="DisbM_WifeTehsil_Code" class="inputcontrol"
-                  title="DisbM_WifeTehsil_Code" (change)="onWifeTehsilChange($event)"
+                <select #ddlWifeTehsil id="DisbM_WifeTehsil_Code" name="DisbM_WifeTehsil_Code"
+                  class="form-control-custom" title="DisbM_WifeTehsil_Code" (change)="onWifeTehsilChange($event)"
                   formControlName="DisbM_WifeTehsil_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeTehsil_Code.errors }">
                   <option [ngValue]="null" disabled>--पत्नी/दुल्हन की तहसील का चयन करें--</option>
@@ -1544,7 +1546,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeBlock_Code" for="DisbM_WifeBlock_Code" class="lbl">ब्लाक</label>
-                <select #ddlWifeBlock class="inputcontrol" id="DisbM_ WifeBlock_Code" name="DisbM_WifeBlock_Code"
+                <select #ddlWifeBlock class="form-control-custom" id="DisbM_ WifeBlock_Code" name="DisbM_WifeBlock_Code"
                   title="DisbM_WifeBlock_Code" (change)="onWifeBlockChange($event)"
                   formControlName="DisbM_WifeBlock_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeBlock_Code.errors }"
@@ -1567,7 +1569,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_WifePanchayat_Code" for="DisbM_WifePanchayat_Code" class="lbl">पंचायत</label>
-                <select #ddlWifePanchayat class="inputcontrol" id="DisbM_WifePanchayat_Code"
+                <select #ddlWifePanchayat class="form-control-custom" id="DisbM_WifePanchayat_Code"
                   name="DisbM_WifePanchayat_Code" (change)="onWifeanchayatChange($event)" title="Panchayat"
                   formControlName="DisbM_WifePanchayat_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifePanchayat_Code.errors }"
@@ -1589,8 +1591,8 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeVillage_Code" for="DisbM_WifeVillage_Code" class="lbl">गाँव</label>
-                <select #ddlWifeVillage id="DisbM_WifeVillage_Code" name="DisbM_WifeVillage_Code" class="inputcontrol"
-                  title="Village_Code" formControlName="DisbM_WifeVillage_Code"
+                <select #ddlWifeVillage id="DisbM_WifeVillage_Code" name="DisbM_WifeVillage_Code"
+                  class="form-control-custom" title="Village_Code" formControlName="DisbM_WifeVillage_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeVillage_Code.errors }"
                   [appDisable]="disableWifeRuralArea">
                   <option value="null" disabled selected hidden>--पत्नी/दुल्हन के गाँव का चयन करें--</option>
@@ -1612,7 +1614,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeTown_Code" for="DisbM_WifeTown_Code" class="lbl">शहर</label>
-                <select #ddlWifeTown id="DisbM_WifeTown_Code" name="DisbM_WifeTown_Code" Class="inputcontrol"
+                <select #ddlWifeTown id="DisbM_WifeTown_Code" name="DisbM_WifeTown_Code" class="form-control-custom"
                   (change)="onWifeTownChange($event)" title="DisbM_WifeTown_Code" formControlName="DisbM_WifeTown_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeTown_Code.errors }"
                   [appDisable]="!disableWifeRuralArea">
@@ -1633,7 +1635,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeWard_Code" for="DisbM_WifeWard_Code" class="lbl">वार्ड</label>
-                <select #ddlWifeWard id="DisbM_WifeWard_Code" name="DisbM_WifeWard_Code" Class="inputcontrol"
+                <select #ddlWifeWard id="DisbM_WifeWard_Code" name="DisbM_WifeWard_Code" class="form-control-custom"
                   title="Ward" formControlName="DisbM_WifeWard_Code"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeWard_Code.errors }"
                   [appDisable]="!disableWifeRuralArea">
@@ -1657,7 +1659,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeHouse_number" for="DisbM_WifeHouse_number" class="lbl">मकान न.</label>
                 <input id="DisbM_WifeHouse_number" name="DisbM_WifeHouse_number" type="text" placeholder="मकान न."
-                  formControlName="DisbM_WifeHouse_number" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_WifeHouse_number" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeHouse_number.errors }" />
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeHouse_number.errors">
                   <div *ngIf="f.DisbM_WifeHouse_number.errors.pattern">
@@ -1673,7 +1675,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeAreaMohalla" for="DisbM_WifeAreaMohalla" class="lbl">मुहल्ला</label>
                 <input id="DisbM_WifeAreaMohalla" name="DisbM_WifeAreaMohalla" type="text" placeholder="मुहल्ला"
-                  formControlName="DisbM_WifeAreaMohalla" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_WifeAreaMohalla" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeAreaMohalla.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeAreaMohalla.errors">
@@ -1692,7 +1694,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_WifePostOffice" for="DisbM_WifePostOffice" class="lbl">पोस्ट ऑफिस</label>
                 <input id="DisbM_WifePostOffice" name="DisbM_WifePostOffice" type="text" placeholder="पोस्ट ऑफिस"
-                  formControlName="DisbM_WifePostOffice" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_WifePostOffice" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifePostOffice.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifePostOffice.errors">
@@ -1707,7 +1709,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_WifePinCode" for="DisbM_WifePinCode" class="lbl">पिन कोड</label>
                 <input id="DisbM_WifePinCode" name="DisbM_WifePinCode" type="text" placeholder="पिन कोड"
-                  formControlName="DisbM_WifePinCode" class="inputcontrol" autocomplete="off"
+                  formControlName="DisbM_WifePinCode" class="form-control-custom" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifePinCode.errors }" />
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifePinCode.errors">
                   <div *ngIf="f.DisbM_WifePinCode.errors.required">
@@ -1734,7 +1736,7 @@
                 <label id="lblDisbM_WifeCurrentAddress" for="DisbM_WifeCurrentAddress" class="lbl">वर्तमान पता <span
                     id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_WifeCurrentAddress" name="DisbM_WifeCurrentAddress" type="text"
-                  placeholder="वर्तमान पता" formControlName="DisbM_WifeCurrentAddress" class="inputcontrol"
+                  placeholder="वर्तमान पता" formControlName="DisbM_WifeCurrentAddress" class="form-control-custom"
                   autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeCurrentAddress.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_WifeCurrentAddress.errors">
@@ -1757,7 +1759,7 @@
                   का पता <span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_WifeBeforeMarriagAddress" name="DisbM_WifeBeforeMarriagAddress" type="text"
                   placeholder="विवाह पूर्व का पता " formControlName="DisbM_WifeBeforeMarriagAddress" autocomplete="off"
-                  class="inputcontrol"
+                  class="form-control-custom"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_WifeBeforeMarriagAddress.errors }" />
 
                 <div class="invalid-feedback errorMessages"
@@ -1780,7 +1782,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeLokSabhaArea" for="DisbM_WifeLokSabhaArea" class="lbl">लोकसभा क्षेत्र<span
                     id="Span1" class="CSSstar">*</span></label>
-                <select id="DisbM_WifeLokSabhaArea" name="DisbM_WifeLokSabhaArea" class="inputcontrol"
+                <select id="DisbM_WifeLokSabhaArea" name="DisbM_WifeLokSabhaArea" class="form-control-custom"
                   formControlName="DisbM_WifeLokSabhaArea"
                   [ngClass]="{ 'is-invalid':submitted && f.DisbM_WifeLokSabhaArea.errors}">
                   <option [ngValue]="null">--लोकसभा क्षेत्र क चयन करें--</option>
@@ -1799,7 +1801,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_WifeAssemblyArea" for="DisbM_WifeAssemblyArea" class="lbl">विधानसभा क्षेत्र<span
                     id="Span1" class="CSSstar">*</span></label>
-                <select id="DisbM_WifeAssemblyArea" name="DisbM_WifeAssemblyArea" class="inputcontrol"
+                <select id="DisbM_WifeAssemblyArea" name="DisbM_WifeAssemblyArea" class="form-control-custom"
                   formControlName="DisbM_WifeAssemblyArea"
                   [ngClass]="{ 'is-invalid':submitted && f.DisbM_WifeAssemblyArea.errors }">
                   <option [ngValue]="null">--विधानसभा क्षेत्र का चयन करें--</option>
@@ -1816,21 +1818,20 @@
             </div>
           </div>
         </div>
-        <div class="panel-bottom">
+            <div class="panel-bottom">
           <div class="row">
+           
+              <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                <div class="row">
+                  <button class="btn  btn-success btn-lg btnStyle" color="primary"
+                    (click)="goToPreviousTab()">Prev..</button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <button class="btn  btn-success btn-lg" color="primary" (click)="goToPreviousTab()">Previous</button>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-              <div class="row">
-
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
-              <div class="row">
-                <button class="btn btn-success btn-lg" color="primary" (click)="goToNextTab()">Next</button>
+                <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goToNextTab()">Next</button>
               </div>
             </div>
           </div>
@@ -1839,7 +1840,7 @@
 
 
     </mat-tab>
-    <mat-tab label="शादी सम्बन्धी सूचना">
+    <mat-tab label="शादी सम्बन्धी सूचना" disabled>
       <div class="panel panel-info paneldv">
         <div class="panel-heading">
           <span>शादी सम्बन्धी सूचना (* प्रविष्टियाँ अनिवार्य हैं)</span>
@@ -1851,7 +1852,7 @@
                 <label id="lblDisbM_MarriageDate" for="DisbM_MarriageDate" class="lbl">शादी की तिथि का चयन करें<span
                     id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_MarriageDate" type="text" placeholder="विवाह पंजीकरण तिथि का चयन करें"
-                  formControlName="DisbM_MarriageDate" class="inputcontrol" bsDatepicker [bsConfig]="{  }"
+                  formControlName="DisbM_MarriageDate" class="form-control-custom" bsDatepicker [bsConfig]="{  }"
                   [bsConfig]="{ adaptivePosition: true,isAnimated: true,dateInputFormat: 'DD/MM/YYYY'}"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_MarriageDate.errors }" />
 
@@ -1868,7 +1869,7 @@
                     id="Span1" class="CSSstar">*</span></label>
 
                 <input id="DisbM_MarriageRegistrationNo" type="text" formControlName="DisbM_MarriageRegistrationNo"
-                  name="DisbM_MarriageRegistrationNo" class="inputcontrol" placeholder="Marriage Registration No"
+                  name="DisbM_MarriageRegistrationNo" class="form-control-custom" placeholder="Marriage Registration No"
                   [appDisable]="MarriageRegDetailsFieldsDisabled" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_MarriageRegistrationNo.errors }" />
                 <div class="invalid-feedback errorMessages"
@@ -1894,8 +1895,8 @@
                   title="Marriage Registration Date" class="lbl">शादी पंजीकरण
                   तिथि<span id="Span111" class="CSSstar">*</span></label>
                 <input id="DisbM_MarriageRegistrationDate" type="text" placeholder=" शादी पंजीकरण तिथि का चयन करें"
-                  formControlName="DisbM_MarriageRegistrationDate" class="inputcontrol" bsDatepicker [bsConfig]="{  }"
-                  autocomplete="off"
+                  formControlName="DisbM_MarriageRegistrationDate" class="form-control-custom" bsDatepicker
+                  [bsConfig]="{  }" autocomplete="off"
                   [bsConfig]="{ adaptivePosition: true,isAnimated: true,dateInputFormat: 'DD/MM/YYYY'}"
                   [appDisable]="MarriageRegDetailsFieldsDisabled"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_MarriageRegistrationDate.errors }" />
@@ -1920,7 +1921,7 @@
                   class="lbl">विवाह पंजीकरण कार्यालय का नाम<span id="Span1" class="CSSstar">*</span></label>
                 <input id="DisbM_MarriageRegistrationOfficeName" type="text"
                   formControlName="DisbM_MarriageRegistrationOfficeName" name="DisbM_MarriageRegistrationOfficeName"
-                  autocomplete="off" class="inputcontrol" placeholder="विवाह पंजीकरण कार्यालय का नाम"
+                  autocomplete="off" class="form-control-custom" placeholder="विवाह पंजीकरण कार्यालय का नाम"
                   [appDisable]="MarriageRegDetailsFieldsDisabled"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_MarriageRegistrationOfficeName.errors }" />
 
@@ -1968,7 +1969,7 @@
               <div class="row  rowsGap">
                 <label id="lblDisbM_UCCRegNo" for="DisbM_UCCRegNo" class="lbl">नागरिक संहिता पंजीकरण संख्या दर्ज
                   करें</label>
-                <input type="text" id="DisbM_UCCRegNo" name="DisbM_UCCRegNo" class="inputcontrol"
+                <input type="text" id="DisbM_UCCRegNo" name="DisbM_UCCRegNo" class="form-control-custom"
                   formControlName="DisbM_UCCRegNo" placeholder="नागरिक संहिता पंजीकरण संख्या"
                   [appDisable]="!MarriageRegInUCC" [ngClass]="{'is-invalid':submitted && f.DisbM_UCCRegNo.errors}">
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_UCCRegNo.errors">
@@ -1990,7 +1991,7 @@
               <div class="row  rowsGap">
                 <label id="lblDisbM_UCCRegDate" for="DisbM_UCCRegDate" class="lbl">नागरिक संहिता पंजीकरण की
                   तिथि</label>
-                <input type="text" id="DisbM_UCCRegDate" name="DisbM_UCCRegDate" class="inputcontrol"
+                <input type="text" id="DisbM_UCCRegDate" name="DisbM_UCCRegDate" class="form-control-custom"
                   formControlName="DisbM_UCCRegDate" [appDisable]="!MarriageRegInUCC"
                   placeholder="नागरिक संहिता पंजीकरण की तिथि" bsDatepicker [bsConfig]="{  }"
                   [bsConfig]="{ adaptivePosition: true,isAnimated: true,dateInputFormat: 'DD/MM/YYYY'}"
@@ -2008,21 +2009,20 @@
           </div>
 
         </div>
-        <div class="panel-bottom">
+            <div class="panel-bottom">
           <div class="row">
+           
+              <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                <div class="row">
+                  <button class="btn  btn-success btn-lg btnStyle" color="primary"
+                    (click)="goToPreviousTab()">Prev..</button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <button class="btn  btn-success btn-lg" color="primary" (click)="goToPreviousTab()">Previous</button>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-              <div class="row">
-
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
-              <div class="row">
-                <button class="btn btn-success btn-lg" color="primary" (click)="goToNextTab()">Next</button>
+                <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goToNextTab()">Next</button>
               </div>
             </div>
           </div>
@@ -2030,7 +2030,7 @@
       </div>
     </mat-tab>
 
-    <mat-tab label="आवेदक का खाता विवरण">
+    <mat-tab label="आवेदक का खाता विवरण" disabled>
       <div class="panel panel-info paneldv">
         <div class="panel-heading">
           <span>आवेदक का खाता विवरण(* प्रविष्टियाँ अनिवार्य हैं)</span>
@@ -2046,8 +2046,8 @@
                 <label id="lblDisbM_IFSC" for="DisbM_IFSC" class="lbl">आई० एफ० एस० सी <span id="Span1"
                     class="CSSstar">*</span></label>
                 <input id="DisbM_IFSC" name="DisbM_IFSC" placeholder="आई० एफ० एस० सी" formControlName="DisbM_IFSC"
-                  class="inputcontrol" type="text" oninput="this.value=this.value.toUpperCase()" autocomplete="off"
-                  [ngClass]="{ 'is-invalid': submitted && f.DisbM_IFSC.errors }" />
+                  class="form-control-custom" type="text" oninput="this.value=this.value.toUpperCase()"
+                  autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.DisbM_IFSC.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_IFSC.errors">
 
@@ -2067,9 +2067,9 @@
                 <label id="lblDisbM_ConfirmIFSC" for="DisbM_ConfirmIFSC" class="lbl">आई० एफ० एस० सी पुनः दर्ज करें<span
                     id="Span1" class="CSSstar">*</span></label>
                 <input #confirmIfsc id="DisbM_ConfirmIFSC" name="DisbM_ConfirmIFSC" type="text"
-                  placeholder="आई० एफ० एस० सी पुनः दर्ज करें" formControlName="DisbM_ConfirmIFSC" class="inputcontrol"
-                  oninput="this.value=this.value.toUpperCase()" (blur)="searchIFSC($event)" autocomplete="off"
-                  [ngClass]="{ 'is-invalid': submitted && f.DisbM_ConfirmIFSC.errors }" />
+                  placeholder="आई० एफ० एस० सी पुनः दर्ज करें" formControlName="DisbM_ConfirmIFSC"
+                  class="form-control-custom" oninput="this.value=this.value.toUpperCase()" (blur)="searchIFSC($event)"
+                  autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.DisbM_ConfirmIFSC.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_ConfirmIFSC.errors">
                   <div *ngIf="f.DisbM_ConfirmIFSC.errors.required">
@@ -2091,7 +2091,7 @@
               <div class="row rowsGap">
                 <label id="lblDisbM_Branch" for="DisbM_Branch" class="lbl">शाखा<span id="Span1"
                     class="CSSstar">*</span></label>
-                <select id="DisbM_Branch" Class="inputcontrol" name="DisbM_Branch" title="Branch"
+                <select id="DisbM_Branch" class="form-control-custom" name="DisbM_Branch" title="Branch"
                   formControlName="DisbM_Branch" [ngClass]="{ 'is-invalid': submitted && f.DisbM_Branch.errors }">
                   <option [ngValue]="null" disabled>--बैंक शाखा का चयन करें--</option>
                   <option *ngFor="let branch of bankBranches" [value]="branch.branch_Code">
@@ -2116,7 +2116,7 @@
                 <label id="lblDisbM_BankAccountNo" for="DisbM_BankAccountNo" class="lbl">खाता संख्या<span id="Span1"
                     class="CSSstar">*</span></label>
                 <input #bankAccountno id="DisbM_BankAccountNo" name="DisbM_BankAccountNo" type="text"
-                  placeholder="खाता संख्या" formControlName="DisbM_BankAccountNo" class="inputcontrol"
+                  placeholder="खाता संख्या" formControlName="DisbM_BankAccountNo" class="form-control-custom"
                   (blur)="checkDuplicityOfBankAcc($event)" autocomplete="off"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_BankAccountNo.errors }" />
 
@@ -2136,7 +2136,7 @@
                   दर्ज करें<span id="Span1" class="CSSstar">*</span></label>
                 <input #confirmBankAccountno id="DisbM_ConfirmBankAccountNo" name="DisbM_ConfirmBankAccountNo"
                   type="text" placeholder="खाता संख्या पुनः दर्ज करें" formControlName="DisbM_ConfirmBankAccountNo"
-                  class="inputcontrol" autocomplete="off" (blur)="checkDuplicityOfBankAcc($event)"
+                  class="form-control-custom" autocomplete="off" (blur)="checkDuplicityOfBankAcc($event)"
                   [ngClass]="{ 'is-invalid': submitted && f.DisbM_ConfirmBankAccountNo.errors }" />
 
                 <div class="invalid-feedback errorMessages" *ngIf="submitted && f.DisbM_ConfirmBankAccountNo.errors">
@@ -2232,19 +2232,22 @@
 
           </div>
         </div>
-        <div class="panel-bottom">
+           <div class="panel-bottom">
           <div class="row">
+           
+              <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+                <div class="row">
+                  <button class="btn  btn-success btn-lg btnStyle" color="primary"
+                    (click)="goToPreviousTab()">Prev..</button>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
               <div class="row">
-                <button class="btn  btn-success btn-lg" color="primary" (click)="goToPreviousTab()">Previous</button>
+                <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goToNextTab()">Next</button>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
-              <div class="row">
-
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

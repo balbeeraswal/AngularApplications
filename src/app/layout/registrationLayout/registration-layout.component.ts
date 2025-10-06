@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class RegistrationLayoutComponent {
 
+goBack()
+{
+  window.location.href='http://localhost:57709/OnlineRegistration/FrmOnlineRegisApplicationOldage.aspx';
+}
 }

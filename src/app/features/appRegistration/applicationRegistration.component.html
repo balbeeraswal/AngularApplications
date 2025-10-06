@@ -1,10 +1,10 @@
 <form [formGroup]="registrationForm" class="frmStyle" autocomplete="off" *ngIf="registrationForm"
   (ngSubmit)="onSubmit()">
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 dvbtnBackStyle">
       <button class="btn btn-success btn-lg btnStyle" color="primary" (click)="goBack()">Go Back</button>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -12,7 +12,8 @@
     <mat-tab class="mat-tab-label" label="आवेदक एवं दिव्यांगता का विवरण" disabled>
       <div class="panel panel-info paneldv">
         <div class="panel-heading">
-          <span>आवेदक तथा पति/दूल्हा एवं पत्नी/दुल्हन की दिव्यांगता का विवरण</span>
+          <span>आवेदक तथा पति/दूल्हा एवं पत्नी/दुल्हन की दिव्यांगता का विवरण</span> 
+          
         </div>
         <div class="panel-body form-group">
 
@@ -188,7 +189,7 @@
           <span> पति/दूल्हा का विवरण(* प्रविष्टियाँ अनिवार्य हैं)</span>
         </div>
         <div class="panel-body form-group">
-          <div class="jumbotron jumbotronHeaderStyle" style="padding-top: 10px; padding-bottom: 10px; color: red;">
+         <div class="jumbotron jumbotronHeaderStyle" style="padding-top: 10px; padding-bottom: 10px; color: red;">
             नोट:-आवेदन पत्र मे नाम, आधार कार्ड मे अंकित नाम तथा पासबुक मे अंकित नाम के समान होना आवश्यक है |
           </div>
           <div class="row">
@@ -1054,6 +1055,9 @@
           <span>पत्नी/दुल्हन का विवरण(* प्रविष्टियाँ अनिवार्य हैं)</span>
         </div>
         <div class="panel-body form-group">
+           <div class="jumbotron jumbotronHeaderStyle" style="padding-top: 10px; padding-bottom: 10px; color: red;">
+            नोट:-आवेदन पत्र मे नाम, आधार कार्ड मे अंकित नाम तथा पासबुक मे अंकित नाम के समान होना आवश्यक है |
+          </div>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
               <div class="row rowsGap">

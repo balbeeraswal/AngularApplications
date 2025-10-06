@@ -137,7 +137,7 @@ export class masterServices {
   //-----------------API to fetch Occupations through API----------------
 
   getOccupations(): Observable<any> {
-    var baseUrl = "https://localhost:7055/api/Occupation";
+    var baseUrl = "https://localhost:5001/api/Occupation";
     // var baseUrl="https://ssp.uk.gov.in/umang/api/Occupation"
     return this.http.get(baseUrl);
 
@@ -169,14 +169,14 @@ export class masterServices {
 
   getAssemblyConstyNames(): Observable<any> {
     // var baseUrl="https://ssp.uk.gov.in/umang/api/BankBranchDetailsByIFSC";
-    var baseUrl = 'https://localhost:7055/api/AssemblyConstyNames';
+    var baseUrl = 'https://localhost:5001/api/AssemblyConstyNames';
     return this.http.get(baseUrl);
   }
 
 
   getLokSabhaConstyNames(): Observable<any> {
     // var baseUrl="https://ssp.uk.gov.in/umang/api/BankBranchDetailsByIFSC";
-    var baseUrl = 'https://localhost:7055/api/LokSabhaConstyNames';
+    var baseUrl = 'https://localhost:5001/api/LokSabhaConstyNames';
     return this.http.get(baseUrl);
   }
 
@@ -320,7 +320,7 @@ export class masterServices {
     DisbM_HusbWifeDeclare: string
   ): Observable<any> {
     // var baseUrl="https://ssp.uk.gov.in/umang/api/BankBranchDetailsByIFSC";
-    var baseUrl = 'https://localhost:7055/api/RegisterDisMApplicant';
+    var baseUrl = 'https://localhost:5001/api/RegisterDisMApplicant';
     // let headers = new HttpHeaders({'content-type': 'application/json'});
     const headers = {
       'Access-Control-Allow-Origin': '*',

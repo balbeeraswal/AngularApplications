@@ -43,21 +43,24 @@
     background-color: #d9edf7;
     border-color: #bce8f1 */
   width: 100%;
-  background: #2C4E86;
+
+  background: #e5e7eb;  
   display: inline-block;
   font-size: 19px;
   font-weight: 500;
+  font-weight: bold;
   padding: 10px;
-  color: #fff;
+  color: #000;
   margin-bottom: 20px;
 }
 .panel-info > .panel-bottom
 {
   width: 100%;
-  background: #2C4E86;
+ 
   display: inline-block;
   font-size: 19px;
   font-weight: 500;
+  font-weight:bold;
   padding: 10px;
   color: #fff;
  
@@ -9728,6 +9731,58 @@ app-cookie-popup .popup {
 }
 
 .mat-tab-label.mat-tab-label-active {
-  color: #00ADEE !important;
-  background-color: #f0f0f0;
+  /* color: #00ADEE !important; */
+ 
 }
+
+
+/*CSS for controls
+/* General form styling */
+.form-control-custom {
+  width: 100%;
+  padding: 6px 14px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Focus state */
+.form-control-custom:focus {
+  border-color: #0d6efd; /* Bootstrap primary color */
+  box-shadow: 0 0 6px rgba(13,110,253,0.25);
+  outline: none;
+}
+
+/* Disabled state */
+.form-control-custom:disabled {
+  background-color: #f5f5f5;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* Dropdown specific (for <select>) */
+select.form-control-custom {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23666' stroke-width='2' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 35px;
+}
+
+/* Label styling */
+label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Add hover feedback */
+.form-control-custom:hover {
+  border-color: #999;
+} 

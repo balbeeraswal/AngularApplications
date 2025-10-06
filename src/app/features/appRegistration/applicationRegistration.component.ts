@@ -1641,9 +1641,5 @@ export class applicationRegistrationComponent implements OnInit, OnDestroy {
     // });
   }
 
-goBack()
-{
-  window.location.href='http://localhost:57709/OnlineRegistration/FrmOnlineRegisApplicationOldage.aspx';
-}
 
 }
